@@ -20,11 +20,19 @@ let rec build list =
         |[] -> Empty
         |elem::t -> insert elem (build t)
 
-let rec flatten T = 
+//for N^2
+let rec flatten2 T = 
     match T with 
         |Empty -> []
-        |Node(t1, n, t2) -> (flatten t1) @ n::(flatten t2)
+        |Node(t1, n, t2) -> (flatten2 t1) @ n::(flatten2 t2)
 
+//linear time
+let rec foldTree seed T =
+    match T with
+        | Empty -> seed
+        | Node(t1, elem, t2) -> foldTree (elem::(foldTree seed t2)) t1
+
+let flatten T = foldTree [] T
 let sort list = flatten (build list)
 
 //for output
