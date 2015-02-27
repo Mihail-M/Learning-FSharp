@@ -2,8 +2,3 @@
 
 let primes = Seq.filter isPrime (Seq.initInfinite (fun x -> x + 2))  
 printfn "%A" (primes)
-
-let f a b = 
-        match a b with
-        | (0 1) -> 3
-        | (_ _) -> 4
