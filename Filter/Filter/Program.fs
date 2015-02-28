@@ -4,7 +4,7 @@
         |(x::t) -> if f x then x::(filter f t)
                    else filter f t
 
-printfn "Example Filter: only odd  %A " (filter (fun x -> x%2 = 0 ) [2..10..100])
+printfn "Example Filter: only even  %A " (filter (fun x -> x%2 = 0 ) [2..10..100])
 
 //example long "Quicksort" 
 
